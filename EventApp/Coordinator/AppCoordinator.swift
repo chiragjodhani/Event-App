@@ -7,12 +7,12 @@
 //
 
 import UIKit
-protocol Coordiantor {
-    var childCoordinator: [Coordiantor] { get}
+protocol Coordiantor: class {
+    var childCoordinators: [Coordiantor] { get}
     func start()
 }
 final class AppCoordinator: Coordiantor {
-    private(set) var childCoordinator: [Coordiantor] = []
+    private(set) var childCoordinators: [Coordiantor] = []
     private let window: UIWindow
     
     init(window:  UIWindow) {
@@ -20,11 +20,8 @@ final class AppCoordinator: Coordiantor {
     }
     func start() {
         let navigationController = UINavigationController()
-        
-        
         let eventCoordinator = EventCoordinator(navigationController: navigationController)
-        
-        childCoordinator.append(eventCoordinator)
+        childCoordinators.append(eventCoordinator)
         eventCoordinator.start()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

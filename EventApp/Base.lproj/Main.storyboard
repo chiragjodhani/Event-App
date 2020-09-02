@@ -22,5 +22,35 @@
             </objects>
             <point key="canvasLocation" x="139" y="127"/>
         </scene>
+        <!--Add Event View Controller-->
+        <scene sceneID="qaB-0n-dNY">
+            <objects>
+                <viewController storyboardIdentifier="AddEventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cu5-Ka-d6I" customClass="AddEventViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="69t-Ju-WCX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QzJ-Tm-Wds">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QzJ-Tm-Wds" firstAttribute="top" secondItem="q64-wk-aFi" secondAttribute="top" id="I8p-Ns-dkT"/>
+                            <constraint firstItem="q64-wk-aFi" firstAttribute="bottom" secondItem="QzJ-Tm-Wds" secondAttribute="bottom" id="Vm7-6Q-H2l"/>
+                            <constraint firstItem="q64-wk-aFi" firstAttribute="trailing" secondItem="QzJ-Tm-Wds" secondAttribute="trailing" id="hFJ-7H-h0Q"/>
+                            <constraint firstItem="QzJ-Tm-Wds" firstAttribute="leading" secondItem="q64-wk-aFi" secondAttribute="leading" id="pn0-gR-ROz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q64-wk-aFi"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="QzJ-Tm-Wds" id="eb0-2y-qxJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wEm-fE-umu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="127"/>
+        </scene>
     </scenes>
 </document>
