@@ -45,7 +45,7 @@ final class TitleSubTitleCell: UITableViewCell {
         
         photoIamgeView.isHidden = viewModel.type != .image
         subTitleTextField.isHidden = viewModel.type == .image
-        
+        photoIamgeView.image = viewModel.image
         verticalStackView.spacing = viewModel.type == .image ? 15 : verticalStackView.spacing
     }
     private func setupViews() {

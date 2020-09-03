@@ -14,6 +14,8 @@
 		C230A2B024FFABBE00B2FE59 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230A2AF24FFABBE00B2FE59 /* AddEventViewController.swift */; };
 		C230A2B224FFAC7700B2FE59 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230A2B124FFAC7700B2FE59 /* UIViewController+Extension.swift */; };
 		C230A2B424FFAD8400B2FE59 /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230A2B324FFAD8400B2FE59 /* AddEventViewModel.swift */; };
+		C2B0A4B52500CBE400464F1A /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0A4B42500CBE400464F1A /* ImagePickerCoordinator.swift */; };
+		C2B0A4B72500DA1300464F1A /* EventCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0A4B62500DA1300464F1A /* EventCellBuilder.swift */; };
 		C2EAD1D724FE574D00BCF480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD1D624FE574D00BCF480 /* AppDelegate.swift */; };
 		C2EAD1D924FE574D00BCF480 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD1D824FE574D00BCF480 /* SceneDelegate.swift */; };
 		C2EAD1DE24FE574D00BCF480 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2EAD1DC24FE574D00BCF480 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		C230A2AF24FFABBE00B2FE59 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		C230A2B124FFAC7700B2FE59 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		C230A2B324FFAD8400B2FE59 /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
+		C2B0A4B42500CBE400464F1A /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		C2B0A4B62500DA1300464F1A /* EventCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellBuilder.swift; sourceTree = "<group>"; };
 		C2EAD1D324FE574D00BCF480 /* EventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EAD1D624FE574D00BCF480 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2EAD1D824FE574D00BCF480 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				C2EAD1F424FE73DC00BCF480 /* Extensions */,
 				C230A2A424FF97EF00B2FE59 /* EventApp.xcdatamodeld */,
 				C230A2A724FF98E200B2FE59 /* CoreDataManager.swift */,
+				C2B0A4B62500DA1300464F1A /* EventCellBuilder.swift */,
 			);
 			path = EventApp;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 				C2EAD1EA24FE577300BCF480 /* AppCoordinator.swift */,
 				C2EAD1EC24FE6AB000BCF480 /* EventListCoordinator.swift */,
 				C230A2AD24FFA66000B2FE59 /* AddEventCoordinator.swift */,
+				C2B0A4B42500CBE400464F1A /* ImagePickerCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -226,6 +232,8 @@
 				C2F2430924FFCC8D00C79FBA /* TitleSubTitleCell.swift in Sources */,
 				C2EAD1ED24FE6AB000BCF480 /* EventListCoordinator.swift in Sources */,
 				C230A2B024FFABBE00B2FE59 /* AddEventViewController.swift in Sources */,
+				C2B0A4B52500CBE400464F1A /* ImagePickerCoordinator.swift in Sources */,
+				C2B0A4B72500DA1300464F1A /* EventCellBuilder.swift in Sources */,
 				C230A2AC24FFA4F400B2FE59 /* EventListViewModel.swift in Sources */,
 				C230A2A824FF98E200B2FE59 /* CoreDataManager.swift in Sources */,
 				C230A2A624FF97EF00B2FE59 /* EventApp.xcdatamodeld in Sources */,

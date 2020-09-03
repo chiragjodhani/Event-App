@@ -6,6 +6,7 @@
 //  Copyright © 2020 Chatur's. All rights reserved.
 //
 import Foundation
+import UIKit
 final class TitleSubTitleCellViewModel {
     enum CellType {
         case text
@@ -15,16 +16,17 @@ final class TitleSubTitleCellViewModel {
     
     let title: String
     private(set) var subTitle: String
+    private(set) var image: UIImage?
     let placeholder: String
     let type: CellType
     
-    private(set) var onCellUpdate: () -> Void = {}
+    private(set) var onCellUpdate: (() -> Void)?
     lazy var dateFormatter: DateFormatter = {
        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyy"
         return dateFormatter
     }()
-    init(_ title: String, _ subTitle: String, _ placeholder: String, _ type: CellType, onCellUpdate: @escaping() -> Void) {
+    init(_ title: String, _ subTitle: String, _ placeholder: String, _ type: CellType, onCellUpdate: (() -> Void)?) {
         self.title = title
         self.subTitle = subTitle
         self.placeholder = placeholder
@@ -39,6 +41,10 @@ final class TitleSubTitleCellViewModel {
     func update(date: Date) {
         let dateString = dateFormatter.string(from: date)
         self.subTitle = dateString
-        onCellUpdate()
+        onCellUpdate?()
+    }
+    func update(image: UIImage) {
+        self.image = image
+        onCellUpdate?()
     }
 }

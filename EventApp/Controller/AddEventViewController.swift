@@ -34,6 +34,7 @@ class AddEventViewController: UIViewController {
     
     private func setupViews() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(TitleSubTitleCell.self, forCellReuseIdentifier: "TitleSubTitleCell")
         tableView.tableFooterView = UIView()
         
@@ -61,6 +62,12 @@ extension AddEventViewController: UITableViewDataSource {
             cell.subTitleTextField.delegate = self
             return cell
         }
+    }
+}
+extension AddEventViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
 extension AddEventViewController: UITextFieldDelegate {
