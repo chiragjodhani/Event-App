@@ -15,7 +15,7 @@ final class EventCoordinator: Coordiantor {
     }
     func start() {
         let eventListViewController: EventListViewController = .instantiate()
-        let evetnListViewModel = EventListViewModel()
+        let evetnListViewModel = EventListViewModel(coreDataManager: CoreDataManager())
         evetnListViewModel.coordinator = self
         eventListViewController.viewModel = evetnListViewModel
         navigationController.setViewControllers([eventListViewController], animated: false)
@@ -29,7 +29,6 @@ final class EventCoordinator: Coordiantor {
     }
     
     func childDidFinish(childCoordinator: Coordiantor){
-        print(CoreDataManager().fetchEvent().first?.name)
         if let index = self.childCoordinators.firstIndex(where: { coordinator -> Bool in
             return  childCoordinator === coordinator
         }) {
