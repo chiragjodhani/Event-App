@@ -67,11 +67,12 @@ final class EventCell: UITableViewCell {
     func update(with viewModel: EventCellViewModel) {
         
         viewModel.timeRemainingStrings.enumerated().forEach {
-            print($0.element)
             timeRemainingLabels[$0.offset].text = $0.element
         }
         dateLabel.text = viewModel.dateText
         eventNameLabel.text = viewModel.eventName
-        backgroundImageView.image = viewModel.backgroundImage
+        viewModel.loadImage { (image) in
+            self.backgroundImageView.image = image ?? UIImage()
+        }
     }
 }

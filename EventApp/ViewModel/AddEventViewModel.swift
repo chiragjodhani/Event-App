@@ -14,7 +14,7 @@ final class AddEventViewModel {
         case titleSubtitle(TitleSubTitleCellViewModel)
     }
     private(set) var cells: [AddEventViewModel.Cell] = []
-    var coordinator: AddEventCoordinator?
+    weak var coordinator: AddEventCoordinator?
     
     var nameCellViewModel: TitleSubTitleCellViewModel?
     var dateCellViewModel: TitleSubTitleCellViewModel?
@@ -28,7 +28,7 @@ final class AddEventViewModel {
         return dateFormmater
     }()
     
-    init(cellBuilder: EventCellBuilder, coreDataManager: CoreDataManager) {
+    init(cellBuilder: EventCellBuilder, coreDataManager: CoreDataManager = CoreDataManager.shared) {
         self.cellBuilder = cellBuilder
         self.coreDataManager = coreDataManager
     }
@@ -73,6 +73,10 @@ final class AddEventViewModel {
                 titleSubTitleCellViewModel.update(image: image)
             }
         }
+    }
+    
+    deinit {
+        print("add event view model has been deallocated")
     }
 }
 
