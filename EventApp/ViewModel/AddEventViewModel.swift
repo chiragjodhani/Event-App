@@ -74,10 +74,6 @@ final class AddEventViewModel {
             }
         }
     }
-    
-    deinit {
-        print("add event view model has been deallocated")
-    }
 }
 
 private extension AddEventViewModel {
