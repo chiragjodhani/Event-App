@@ -31,6 +31,11 @@ struct EventCellViewModel {
     var eventName: String? {
         event.name
     }
+    
+    var timeRemainingViewModel: TimeRemainingViewModel? {
+        guard let eventDate = event.date,let timeRemainingParts = date.timeRemaining(until: eventDate)?.components(separatedBy: ",") else { return nil}
+        return TimeRemainingViewModel(timeRemainingParts: timeRemainingParts, mode: .cell)
+    }
     func loadImage(completion: @escaping (UIImage?) -> Void) {
         if let image = Self.imageCache.object(forKey: cacheKey as NSString) {
            completion(image)
