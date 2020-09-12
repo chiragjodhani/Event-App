@@ -7,12 +7,16 @@
 //
 
 import UIKit
-protocol Coordiantor: class {
-    var childCoordinators: [Coordiantor] { get}
+protocol Coordinator: class {
+    var childCoordinators: [Coordinator] { get}
     func start()
+    func childDidFinish(_ childcoordinator: Coordinator)
 }
-final class AppCoordinator: Coordiantor {
-    private(set) var childCoordinators: [Coordiantor] = []
+extension Coordinator {
+    func childDidFinish(_ childcoordinator: Coordinator) {}
+}
+final class AppCoordinator: Coordinator {
+    private(set) var childCoordinators: [Coordinator] = []
     private let window: UIWindow
     
     init(window:  UIWindow) {

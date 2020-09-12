@@ -7,8 +7,8 @@
 //
 
 import UIKit
-final class AddEventCoordinator: Coordiantor {
-    private(set) var childCoordinators: [Coordiantor] = []
+final class AddEventCoordinator: Coordinator {
+    private(set) var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
     private var modalNavigationController: UINavigationController?
     private var completion: (UIImage) -> Void = { _ in }
@@ -32,10 +32,10 @@ final class AddEventCoordinator: Coordiantor {
     }
     
     func didFinish(){
-        parentCoordinator?.childDidFinish(childCoordinator:self)
+        parentCoordinator?.childDidFinish(self)
     }
     func didFinishSaveEvent(){
-        parentCoordinator?.onSaveEvent()
+        parentCoordinator?.onUpdateEvent()
         navigationController.dismiss(animated: true, completion: nil)
     }
     func showImagePicker(completion: @escaping(UIImage) -> Void) {
@@ -45,16 +45,14 @@ final class AddEventCoordinator: Coordiantor {
         self.completion = completion
         let imagePickerCoordinator = ImagePickerCoordinator(navigationController: modalNavigationController)
         imagePickerCoordinator.parentCoordinator = self
+        imagePickerCoordinator.onFinishPicking = { image in
+            completion(image)
+            modalNavigationController.dismiss(animated: true, completion: nil)
+        }
         childCoordinators.append(imagePickerCoordinator)
         imagePickerCoordinator.start()
     }
-    
-    func didFinishPicking(_ image: UIImage) {
-        completion(image)
-        modalNavigationController?.dismiss(animated: true, completion: nil)
-    }
-    
-    func childDidFinish(childCoordinator: Coordiantor){
+    func childDidFinish(childCoordinator: Coordinator){
         if let index = self.childCoordinators.firstIndex(where: { coordinator -> Bool in
             return  childCoordinator === coordinator
         }) {

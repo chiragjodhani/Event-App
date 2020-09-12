@@ -8,9 +8,10 @@
 
 import Foundation
 import UIKit
-final class ImagePickerCoordinator: NSObject, Coordiantor {
-    private(set) var childCoordinators: [Coordiantor] = []
-    var parentCoordinator: AddEventCoordinator?
+final class ImagePickerCoordinator: NSObject, Coordinator {
+    private(set) var childCoordinators: [Coordinator] = []
+    var parentCoordinator: Coordinator?
+    var onFinishPicking: (UIImage) -> Void = { _ in }
     private let navigationController: UINavigationController
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,8 +26,8 @@ final class ImagePickerCoordinator: NSObject, Coordiantor {
 extension ImagePickerCoordinator: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
-            parentCoordinator?.didFinishPicking(image)
+            onFinishPicking(image)
         }
-        parentCoordinator?.childDidFinish(childCoordinator: self)
+        parentCoordinator?.childDidFinish(self)
     }
 }
